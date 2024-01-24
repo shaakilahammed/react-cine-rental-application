@@ -1,5 +1,7 @@
+import Trending from './pages/Trending';
+
 function App() {
-  return <h1>Hello React</h1>;
+  return <Trending />;
 }
 
 export default App;

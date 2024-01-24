@@ -1,0 +1,21 @@
+const Footer = () => {
+  return (
+    <footer className="py-6 md:py-8 mt-8">
+      <div className="container mx-auto">
+        <p className="text-center text-sm text-black/30 dark:text-[#EEEEEE] ">
+          Copyright ©{new Date().getFullYear()} | All rights reserved by{' '}
+          <a
+            href="https://github.com/shaakilahammed"
+            target="_blank"
+            rel="noreferrer"
+            className=" text-primary"
+          >
+            Shakil Ahammed
+          </a>
+        </p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
