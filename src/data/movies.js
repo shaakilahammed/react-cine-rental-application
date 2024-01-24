@@ -8,6 +8,7 @@ const data = [
     genre: 'Comedy/Drama',
     rating: 5,
     price: 140,
+    tags: ['trending', 'new-release'],
   },
   {
     id: crypto.randomUUID(),
@@ -18,6 +19,7 @@ const data = [
     genre: 'Comedy/Drama',
     rating: 3,
     price: 90,
+    tags: ['coming-soon'],
   },
   {
     id: crypto.randomUUID(),
@@ -28,6 +30,7 @@ const data = [
     genre: 'Action/Comedy/Crime/Drama',
     rating: 4,
     price: 100,
+    tags: ['new-release'],
   },
   {
     id: crypto.randomUUID(),
@@ -38,6 +41,7 @@ const data = [
     genre: 'Comedy, Drama, Thriller',
     rating: 4,
     price: 250,
+    tags: ['trending'],
   },
   {
     id: crypto.randomUUID(),
@@ -48,6 +52,7 @@ const data = [
     genre: 'Action/Adventure/Sci-fi',
     rating: 5,
     price: 100,
+    tags: ['trending', 'coming-soon'],
   },
   {
     id: crypto.randomUUID(),
@@ -58,9 +63,21 @@ const data = [
     genre: 'Action/Adventure/Fantacy/Sci-fi',
     rating: 5,
     price: 300,
+    tags: ['trending', 'new-release', 'coming-soon'],
   },
 ];
 
 export const getTrendingMovies = () => {
-  return data;
+  const movies = data.filter((item) => item.tags.includes('trending'));
+  return movies;
+};
+
+export const getNewReleaseMovies = () => {
+  const movies = data.filter((item) => item.tags.includes('new-release'));
+  return movies;
+};
+
+export const getComingSoonMovies = () => {
+  const movies = data.filter((item) => item.tags.includes('coming-soon'));
+  return movies;
 };

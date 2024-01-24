@@ -1,9 +1,9 @@
 import Layout from '../Layout/Layout';
 import MovieList from '../components/MovieList';
-import { getTrendingMovies } from '../data/movies';
+import { getComingSoonMovies } from '../data/movies';
 
-const Trending = () => {
-  const movies = getTrendingMovies();
+const ComingSoon = () => {
+  const movies = getComingSoonMovies();
 
   return (
     <Layout>
@@ -12,4 +12,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default ComingSoon;

@@ -1,6 +1,8 @@
 import tagImage from '../assets/tag.svg';
 import { getImageUrl } from '../utils/getImageUrl';
 import Rating from './Rating';
+import Tag from './Tag';
+
 const MovieCard = ({ movie, onShowModal, onAddToCart }) => {
   return (
     <figure
@@ -13,6 +15,8 @@ const MovieCard = ({ movie, onShowModal, onAddToCart }) => {
         alt={movie.title}
       />
       <figcaption className="pt-4">
+        <Tag tags={movie.tags} />
+
         <h3 className="text-xl mb-1">{movie.title}</h3>
         <p className="text-[#575A6E] text-sm mb-2">{movie.genre}</p>
         <Rating value={movie.rating} />
