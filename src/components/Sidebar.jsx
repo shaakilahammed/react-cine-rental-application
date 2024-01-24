@@ -12,7 +12,7 @@ const Sidebar = () => {
             className="flex items-center space-x-2 px-5 py-3.5 rounded-lg bg-primary text-black"
             href="#"
           >
-            <img src={trendingImage} width="24" height="24" alt="" />
+            <img src={trendingImage} width="24" height="24" alt="Trending" />
             <span>Trending</span>
           </a>
         </li>

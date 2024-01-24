@@ -2,8 +2,11 @@ import Footer from '../components/Footer';
 import MovieList from '../components/MovieList';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
+import { getTrendingMovies } from '../data/movies';
 
 const Trending = () => {
+  const movies = getTrendingMovies();
+
   return (
     <>
       <Navbar />
@@ -11,7 +14,7 @@ const Trending = () => {
         <div className="container grid lg:grid-cols-[218px_1fr] gap-[3.5rem]">
           <Sidebar />
           <div className="content">
-            <MovieList />
+            <MovieList movies={movies} />
           </div>
         </div>
       </main>
