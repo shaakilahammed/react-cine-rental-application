@@ -1,24 +1,28 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import moonImage from '../assets/icons/moon.svg';
 import sunImage from '../assets/icons/sun.svg';
 import logoImage from '../assets/logo.svg';
 import ringImage from '../assets/ring.svg';
 import cartImage from '../assets/shopping-cart.svg';
-import { CartContext } from '../contexts/CartContext';
-import ThemeContext from '../contexts/ThemeContext';
+import { useCart } from '../contexts/CartContext';
+import { useTheme } from '../contexts/ThemeContext';
 import CartModal from './CartModal';
 const Navbar = () => {
   const [showCart, setShowCart] = useState(false);
 
-  const { cart } = useContext(CartContext);
-  const { dark, setDark } = useContext(ThemeContext);
+  const { cart } = useCart();
+  const { dark, setDark } = useTheme();
 
   const handleThemeSwitch = () => {
     setDark((prev) => !prev);
   };
 
   const handleShowCartModal = () => {
-    setShowCart(true);
+    if (cart.length > 0) {
+      setShowCart(true);
+    } else {
+      setShowCart(false);
+    }
   };
   const handleHideCartModal = () => {
     setShowCart(false);
@@ -55,9 +59,11 @@ const Navbar = () => {
               onClick={handleShowCartModal}
             >
               <img src={cartImage} width="24" height="24" alt="Cart" />
-              <span className="rounded-full absolute top-[-12px] left-[22px] w-6 h-6 bg-primary text-white text-center">
-                {cart.length}
-              </span>
+              {cart.length > 0 && (
+                <span className="rounded-full absolute top-[-12px] left-[22px] w-6 h-6 bg-primary text-white text-center">
+                  {cart.length}
+                </span>
+              )}
             </button>
           </li>
         </ul>

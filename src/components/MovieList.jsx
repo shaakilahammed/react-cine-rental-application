@@ -1,5 +1,6 @@
-import { useContext, useState } from 'react';
-import { CartContext } from '../contexts/CartContext';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import { useCart } from '../contexts/CartContext';
 import MovieCard from './MovieCard';
 import MovieDetailsModal from './MovieDetailsModal';
 
@@ -7,16 +8,20 @@ const MovieList = ({ movies }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, dispatch } = useCart();
 
   const handleAddToCart = (e, movie) => {
     e.stopPropagation();
     const isExist = cart.find((item) => item.id === movie.id);
     if (isExist) {
-      console.error(`${movie.title} is already added on the cart`);
+      toast.error(`${movie.title} has been already on the cart`);
     } else {
-      const nextCart = [...cart, { ...movie }];
-      setCart(nextCart);
+      dispatch({
+        type: 'ADD_TO_CART',
+        payload: movie,
+      });
+
+      toast.success(`${movie.title} is added to the cart`);
     }
   };
 

@@ -1,14 +1,18 @@
-import { useContext } from 'react';
+import { toast } from 'react-toastify';
 import deleteImage from '../assets/delete.svg';
 import checkoutImage from '../assets/icons/checkout.svg';
-import { CartContext } from '../contexts/CartContext';
+import { useCart } from '../contexts/CartContext';
 import { getImageUrl } from '../utils/getImageUrl';
 
 const CartModal = ({ onHideCartModal }) => {
-  const { cart, setCart } = useContext(CartContext);
-  const handleRemoveFromCart = (movieId) => {
-    const nextCart = cart.filter((item) => item.id !== movieId);
-    setCart(nextCart);
+  const { cart, dispatch } = useCart();
+  const handleRemoveFromCart = (movie) => {
+    dispatch({
+      type: 'REMOVE_FROM_CART',
+      payload: movie.id,
+    });
+
+    toast.success(`${movie.title} has removed from the cart`);
   };
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm">
@@ -39,7 +43,7 @@ const CartModal = ({ onHideCartModal }) => {
                   </div>
                   <div className="flex justify-between gap-4 items-center">
                     <button
-                      onClick={() => handleRemoveFromCart(item.id)}
+                      onClick={() => handleRemoveFromCart(item)}
                       className="bg-[#D42967] rounded-md p-2 md:px-4 inline-flex items-center space-x-2 text-white"
                     >
                       <img className="w-5 h-5" src={deleteImage} alt="" />
