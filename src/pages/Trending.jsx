@@ -1,6 +1,6 @@
 import Layout from '../Layout/Layout';
 import MovieList from '../components/MovieList';
-import { getTrendingMovies } from '../data/movies';
+import { getTrendingMovies } from '../data/bulk-movies';
 
 const Trending = () => {
   const movies = getTrendingMovies();

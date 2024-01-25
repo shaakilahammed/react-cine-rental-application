@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import commingSoonImage from '../assets/icons/commingSoon.svg';
 import favouriteImage from '../assets/icons/favourite.svg';
 import newReleaseImage from '../assets/icons/newRelease.svg';
@@ -58,7 +59,7 @@ const Sidebar = () => {
             className={`flex w-full items-center space-x-2 px-5 py-3.5 rounded-lg ${
               route === 'favourites' && 'bg-primary text-black'
             }`}
-            onClick={() => setRoute('favourites')}
+            onClick={() => toast.info('Coming soon!')}
           >
             <img src={favouriteImage} width="24" height="24" alt="Favourites" />
             <span>Favourites</span>
@@ -69,7 +70,7 @@ const Sidebar = () => {
             className={`flex w-full items-center space-x-2 px-5 py-3.5 rounded-lg ${
               route === 'watch-later' && 'bg-primary text-black'
             }`}
-            onClick={() => setRoute('watch-later')}
+            onClick={() => toast.info('Coming soon!')}
           >
             <img
               src={watchLaterImage}

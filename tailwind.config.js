@@ -14,6 +14,9 @@ export default {
         light: '#fff',
         body: '#1D1E28',
       },
+      gridTemplateColumns: {
+        dynamicGrid: 'repeat(auto-fit, 40px, 40px, 1fr))',
+      },
     },
   },
   plugins: [],

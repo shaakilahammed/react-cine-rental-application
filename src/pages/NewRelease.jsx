@@ -1,6 +1,6 @@
 import Layout from '../Layout/Layout';
 import MovieList from '../components/MovieList';
-import { getNewReleaseMovies } from '../data/movies';
+import { getNewReleaseMovies } from '../data/bulk-movies';
 
 const NewRelease = () => {
   const movies = getNewReleaseMovies();

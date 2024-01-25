@@ -2,7 +2,6 @@ import { toast } from 'react-toastify';
 import deleteImage from '../assets/delete.svg';
 import checkoutImage from '../assets/icons/checkout.svg';
 import { useCart } from '../contexts/CartContext';
-import { getImageUrl } from '../utils/getImageUrl';
 
 const CartModal = ({ onHideCartModal }) => {
   const { cart, dispatch } = useCart();
@@ -28,7 +27,7 @@ const CartModal = ({ onHideCartModal }) => {
                   <div className="flex items-center gap-4">
                     <img
                       className="w-16 rounded overflow-hidden"
-                      src={getImageUrl(item.cover)}
+                      src={item.posterUrl}
                       alt={item.title}
                     />
                     <div>
@@ -36,7 +35,7 @@ const CartModal = ({ onHideCartModal }) => {
                         {item.title}
                       </h3>
                       <p className="max-md:text-xs text-[#575A6E]">
-                        {item.genre}
+                        {item.genres.toString()}
                       </p>
                       <span className="max-md:text-xs">${item.price}</span>
                     </div>

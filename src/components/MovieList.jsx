@@ -25,6 +25,16 @@ const MovieList = ({ movies }) => {
     }
   };
 
+  const handleFavourite = (e) => {
+    e.stopPropagation();
+    toast.info('Coming Soon!');
+  };
+
+  const handleWatchLater = (e) => {
+    e.stopPropagation();
+    toast.info('Coming Soon!');
+  };
+
   const handleShowModal = (movie) => {
     setSelectedMovie(movie);
     setShowModal(true);
@@ -51,6 +61,8 @@ const MovieList = ({ movies }) => {
             movie={movie}
             onShowModal={handleShowModal}
             onAddToCart={handleAddToCart}
+            onWatchLater={handleWatchLater}
+            onFavourite={handleFavourite}
           />
         ))}
       </div>
